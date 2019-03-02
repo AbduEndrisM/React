@@ -1,5 +1,5 @@
 
-import React, {Component} from 'react-md';
+import React, {Component} from 'react';
 
 class LandingPage extends Component{
     render(){
