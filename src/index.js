@@ -6,9 +6,10 @@ import * as serviceWorker from './serviceWorker';
 import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/material.js';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
+
+<App />, document.getElementById('root'));
+
+ 
 serviceWorker.unregister();
