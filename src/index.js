@@ -7,9 +7,12 @@ import 'react-mdl/extra/material.css';
 import 'react-mdl/extra/material.js';
 
 ReactDOM.render(
+<BrowserRouter> 
+<App/>
 
+</BrowserRouter>
 
-<App />, document.getElementById('root'));
+ , document.getElementById('root'));
 
  
 serviceWorker.unregister();
