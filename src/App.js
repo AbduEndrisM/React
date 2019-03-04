@@ -5,6 +5,8 @@ import './App.css';
 import {Layout, Header, Navigation,Drawer, Content} from 'react-mdl';
  
 import Main from './components/main';
+import { Link } from 'react-router-dom';
+
 class App extends Component {
   render() {
     return (  
@@ -13,17 +15,18 @@ class App extends Component {
     <Layout>
         <Header title="Title" scroll>
             <Navigation>
-                <a href="about">About</a>
-                <a href="contact">Contact</a>
-                <a href="survey">Survey</a>
-                <a href="login">Login</a>
+                <Link to="/about">About</Link>
+                <Link to="/contact">Contact</Link>
+                <Link to="/survey">Survey</Link>
+                <Link  to="/login">Login</Link>
             </Navigation>
         </Header>
         <Drawer title="Title">
             <Navigation>
-            <a href="about.js">About</a>
-                <a href="contact.js">Contact</a>
-                <a href="survey">Survey</a>
+
+            <Link to="/about">About</Link>
+                <Link to="/contact">Contact</Link>
+                    <a href="survey">Survey</a>
                 <a href="login">Login</a>
             </Navigation>
         </Drawer>
