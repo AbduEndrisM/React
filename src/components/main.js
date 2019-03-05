@@ -9,6 +9,7 @@ import Contact from './contact';
 import Login from './login';
 import Survey from './survey';
 import Register from './Register';
+import Loginscreen from './Loginscreen';
 
 const Main =() =>(
     <Switch> 
@@ -18,6 +19,7 @@ const Main =() =>(
         <Route exact path="/login" component ={Login} /> 
         <Route exact path="/survey" component ={Survey} /> 
         <Route exact path="/Register" component ={Register} /> 
+        <Route exact path="/Loginscreen" component ={Loginscreen} /> 
        
 
         
