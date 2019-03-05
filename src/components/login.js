@@ -1,10 +1,17 @@
-
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import AppBar from 'material-ui/AppBar';
+import RaisedButton from 'material-ui/RaisedButton';
+import TextField from 'material-ui/TextField';
 import React, { Component } from 'react';
+
 
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.state = { value: '' };
+        this.state = { 
+            username: '',
+            password:"" 
+            };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,24 +28,41 @@ class Login extends Component {
 
     render() {
         return (
-            <div> <h1> Login </h1>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
-                    </label>
-                    <input type="submit" value="Submit" />
-
-                    <div>
-                        <textarea>
-                            Hello there, this is some text in a text area
-                        </textarea>
-                    </div>
-                </form>
-            </div>
+            
+            
+            <div align="center">
+            <MuiThemeProvider>
+              <div>
+              <AppBar
+                 title="Login"  style={{ background: '#2E3B55', textAlign:"center   " }}
+               />
+               <TextField
+                 hintText="Enter your Username"
+                 floatingLabelText="Username"
+                 onChange = {(event,newValue) => this.setState({username:newValue})}
+                 />
+               <br/>
+                 <TextField
+                   type="password"
+                   hintText="Enter your Password"
+                   floatingLabelText="Password"
+                   onChange = {(event,newValue) => this.setState({password:newValue})}
+                   />
+                 <br/>
+                 <RaisedButton label="Submit" primary={true} style={style} onClick={(event) => this.handleClick(event)}/>
+             </div>
+             </MuiThemeProvider>
+          </div>
 
         )
     }
 }
 
+const style = {
+    // margin: 15,
+    // background : '#2E3B55',
+    
+   };
+
+   
 export default Login;

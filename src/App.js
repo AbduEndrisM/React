@@ -13,7 +13,7 @@ class App extends Component {
       /* Uses a header that scrolls with the text, rather than staying locked at the top */
 <div className="demo-big-content">
     <Layout>
-        <Header title="Title" scroll>
+        <Header title="Survey Manageent System" scroll>
             <Navigation>
                 <Link to="/about">About</Link>
                 <Link to="/contact">Contact</Link>
@@ -21,7 +21,7 @@ class App extends Component {
                 <Link  to="/login">Login</Link>
             </Navigation>
         </Header>
-        <Drawer title="Title">
+        <Drawer title="SMS">
             <Navigation>
 
             <Link to="/about">About</Link>
