@@ -8,7 +8,8 @@ import About from './about.js';
 import Contact from './contact';
 import Login from './login';
 import Survey from './survey';
- 
+import Register from './Register';
+
 const Main =() =>(
     <Switch> 
         <Route exact path="/" component ={LandingPage} /> 
@@ -16,7 +17,7 @@ const Main =() =>(
         <Route exact path="/contact" component ={Contact} /> 
         <Route exact path="/login" component ={Login} /> 
         <Route exact path="/survey" component ={Survey} /> 
-        
+        <Route exact path="/Register" component ={Register} /> 
        
 
         
