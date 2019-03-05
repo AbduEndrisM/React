@@ -18,6 +18,7 @@ import Menu from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
+import {Link} from 'react-router-dom';
 
 
 class Survey extends Component{
@@ -28,14 +29,14 @@ class Survey extends Component{
         const { classes } = this.props;
 
     const drawer = (
-      <div>
+      <div >
         <div className={classes.toolbar} />
         <Divider />
         <List>
           {['Manage User', 'Manage Survey', 'Report', 'Logout'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{  <Menu />}</ListItemIcon> 
-              <ListItemText primary={text} />
+             <ListItem button key={text}>
+          <Link to ={"/register"}>  <ListItemIcon>   {  <Menu />} </ListItemIcon> </Link>
+             <ListItemText primary={text} />
             </ListItem>
           ))}
         </List>
