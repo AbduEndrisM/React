@@ -19,56 +19,39 @@ import axios from 'axios';
 import Login from './login';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
+import DateFnsUtils from '@date-io/date-fns';
+import { MuiPickersUtilsProvider, TimePicker, DatePicker } from 'material-ui-pickers';
+import Grid from '@material-ui/core/Grid';
 
 import Button from '@material-ui/core/Button';
 
 
 
 class AddUser extends Component {
-
+  state = {
+    // The first commit of Material-UI
+    selectedDate: new Date('2014-08-18T21:11:54'),
+  };
+  handleDateChange = date => {
+    this.setState({ selectedDate: date });
+  };
 constructor(props){
       super(props);
       this.state={
+        
         first_name:'',
         last_name:'',
         email:'',
         password:''
+        
       }
     }
 
     
-    handleClick(event){
-      var apiBaseUrl = "http://localhost:4000/api/";
-      console.log("values",this.state.first_name,this.state.last_name,this.state.email,this.state.password);
-      //To be done:check for empty values before hitting submit
-      var self = this;
-      var payload={
-      "first_name": this.state.first_name,
-      "last_name":this.state.last_name,
-      "email":this.state.email,
-      "password":this.state.password
-      }
-      axios.post(apiBaseUrl+'/register', payload)
-     .then(function (response) {
-       console.log(response);
-       if(response.data.code == 200){
-        //  console.log("registration successfull");
-         var loginscreen=[];
-         loginscreen.push(<Login parentContext={this}/>);
-         var loginmessage = "Not Registered yet.Go to registration";
-         self.props.parentContext.setState({loginscreen:loginscreen,
-         loginmessage:loginmessage,
-         buttonLabel:"Register",
-         isLogin:true
-          });
-       }
-     })
-     .catch(function (error) {
-       console.log(error);
-     });
-    }
+  
   render() {
     const { classes } = this.props;
+    const { selectedDate } = this.state;
 
     const drawer = (
       <div >
@@ -88,6 +71,7 @@ constructor(props){
       </div>
     );
     return (
+      
       <div className={classes.root}>
         <CssBaseline />
         <AppBar position="fixed" className={classes.appBar}>
@@ -167,13 +151,32 @@ constructor(props){
         /> </div>
          
                
- 
-               
-         <Button variant="contained" color="primary" className={classes.button}>
+<div align="left">
+
+         <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <Grid container className={classes.grid} justify="space-around">
+          <DatePicker
+            margin="normal"
+            label="Date picker"
+            value={selectedDate}
+            onChange={this.handleDateChange}
+          />
+          <TimePicker
+            margin="normal"
+            label="Time picker"
+            value={selectedDate}
+            onChange={this.handleDateChange}
+          />
+        </Grid>
+      </MuiPickersUtilsProvider>
+
+ </div>
+       
+
+ <div><Button variant="contained" color="primary" className={classes.button}>
        Save 
-      </Button>
-
-
+      </Button></div>     
+         
 
 {/* 
            <TextField
@@ -248,6 +251,14 @@ const styles = theme => ({
 });
 const style = {
   margin: 15,
+  grid: {
+    width: '60%',
+  },
+};
+
+
+AddUser.propTypes = {
+  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles, { withTheme: true })(AddUser);
